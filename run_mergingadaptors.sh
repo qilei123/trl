@@ -1,0 +1,3 @@
+python examples/research_projects/stack_llama/scripts/merge_peft_adapter.py --base_model_name="meta-llama/Llama-2-7b-hf" --adapter_model_name="output/dpo/final_checkpoint/" --output_name="ouotput/stack-llama-2"
+
+#python examples/research_projects/stack_llama/scripts/merge_peft_adapter.py --base_model_name="daryl149/llama-2-7b-chat-hf" --adapter_model_name="dpo/final_checkpoint/" --output_name="stack-llama-2"

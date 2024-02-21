@@ -145,6 +145,7 @@ if __name__ == "__main__":
         load_in_4bit=True,
     )
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-hf")
+    #tokenizer = AutoTokenizer.from_pretrained("daryl149/llama-2-7b-chat-hf")
     tokenizer.pad_token = tokenizer.eos_token
 
     # 2. Load the Stack-exchange paired dataset
@@ -203,7 +204,7 @@ if __name__ == "__main__":
     # 5. initialize the DPO trainer
     dpo_trainer = DPOTrainer(
         model,
-        model_ref,
+        #model_ref,
         args=training_args,
         beta=script_args.beta,
         train_dataset=train_dataset,

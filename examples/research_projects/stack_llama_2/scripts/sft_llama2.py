@@ -18,6 +18,7 @@ from trl.trainer import ConstantLengthDataset
 @dataclass
 class ScriptArguments:
     model_name: Optional[str] = field(default="meta-llama/Llama-2-7b-hf", metadata={"help": "the model name"})
+    #model_name: Optional[str] = field(default="daryl149/llama-2-7b-chat-hf", metadata={"help": "the model path"})
     dataset_name: Optional[str] = field(default="lvwerra/stack-exchange-paired", metadata={"help": "the dataset name"})
     subset: Optional[str] = field(default="data/finetune", metadata={"help": "the subset to use"})
     split: Optional[str] = field(default="train", metadata={"help": "the split to use"})
@@ -169,7 +170,9 @@ trainer.train()
 trainer.save_model(training_args.output_dir)
 
 output_dir = os.path.join(training_args.output_dir, "final_checkpoint")
+
 trainer.model.save_pretrained(output_dir)
+trainer.tokenizer.save_pretrained(output_dir)
 
 # Free memory for merging weights
 del base_model
